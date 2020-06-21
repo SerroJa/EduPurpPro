@@ -1,16 +1,13 @@
-FROM node:10.15.3-alpine 
-#FROM openshift/nodejs-010-centos7
-#MAINTAINER Serroha
+FROM node:10.15.3-alpine
+MAINTAINER Serroha
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
-COPY package*.json /usr/src/app/
 
-RUN npm install -g sails && npm install
+#COPY package.json package-lock.json /usr/src/app/
 
 COPY . /usr/src/app/
-EXPOSE 1337
-ENTRYPOINT ["node"]
-CMD ["app.js"]
+RUN npm install sails -g && npm install
 
-#LABEL che:server:1337:ref=sails che:server:1337:protocol=http
- 
+EXPOSE 1337	
+ENTRYPOINT ["node"]	
+CMD ["app.js"]	
