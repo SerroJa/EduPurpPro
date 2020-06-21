@@ -1,0 +1,25 @@
+#FROM node:10.15.3-alpine 
+#FROM openshift/nodejs-010-centos7
+#FROM alpine/git:latest 93fd0705706e
+FROM ubuntu:16.04
+USER root
+MAINTAINER Serroha
+RUN mkdir -p /usr/src/app/
+WORKDIR /usr/src/app/
+COPY package*.json /usr/src/app/
+RUN apt-get update
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+RUN apt-get -y install nodejs
+RUN npm install
+
+#RUN install nodejs
+#RUN npm install -g sails
+#RUN npm install
+COPY . /usr/src/app/
+
+ENTRYPOINT ["node"]
+CMD ["app.js"]
+EXPOSE 1337
+#LABEL che:server:1337:ref=sails che:server:1337:protocol=http
+ 

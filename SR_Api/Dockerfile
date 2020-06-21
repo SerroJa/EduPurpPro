@@ -5,12 +5,12 @@ RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
 COPY package*.json /usr/src/app/
 
-#RUN npm install -g sails
-RUN npm install
-COPY . /usr/src/app/
+RUN npm install -g sails && npm install
 
+COPY . /usr/src/app/
+EXPOSE 1337
 ENTRYPOINT ["node"]
 CMD ["app.js"]
-EXPOSE 1337
+
 #LABEL che:server:1337:ref=sails che:server:1337:protocol=http
  
