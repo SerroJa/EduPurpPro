@@ -1,8 +1,0 @@
-FROM node:10.l5.3	
-COPY package*.json /usr/src/app/
-
-RUN npn install sails -g && npm install
-COPY . /usr/src/app/
-EXPOSE 1337	
-ENTRYPOINT ["sails"]	
-CMD ["lift"]	
