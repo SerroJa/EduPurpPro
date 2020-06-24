@@ -1,15 +1,15 @@
 language: node
-rvm: 
-   - 10.15.3
+rvm:
+  - 10.15.3
 env: node
 
 services:
-   - docker
+  - docker
 script:
-   - docker build -t sirrius/first_repo:sails-api .
+  - docker build -t sirrius/first_repo:sails-api .
 
 after _success:
-   - if [["$TRAVIS_BRANCH" == "master" ]]; then
+  - if [["$TRAVIS_BRANCH" == "dev_travis" ]]; then
        docker login -u "${DOCKER_USERNAME}" -p "DOCKER_PASSWORD}";
        docker push sirrius/first_repo:sails-api ;
-     fi
+    fi
