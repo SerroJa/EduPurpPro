@@ -16,6 +16,7 @@ First of all to create a Dockerfile for this application to build a Docker image
 Task 2
 
 To move a Docker image from my workstation to a registry from where i can to pull it, was used hub.docker.com .
+
 Task 3
 
 To build a Docker image with some open source application automatically evetytime when i pushes changes to the github repository. To achievement this was used Travis CI. On each push into master branch of this repository on Github Travis CI should create a new docker image and push it to registry.
