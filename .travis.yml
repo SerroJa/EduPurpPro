@@ -6,10 +6,10 @@ env: node
 services:
   - docker
 script:
-  - docker build -t sirrius/first_repo:sails-api .
+  - docker build -t sirrius/demo:sails-api .
 
 after _success:
   - if [["$TRAVIS_BRANCH" == "master" ]]; then
        docker login -u "${DOCKER_USERNAME}" -p "DOCKER_PASSWORD}";
-       docker push sirrius/first_repo:sails-api ;
+       docker push sirrius/demo:sails-api ;
     fi
