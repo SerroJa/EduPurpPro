@@ -9,7 +9,7 @@ script:
   - docker build -t sirrius/first_repo:sails-api .
 
 after _success:
-  - if [["$TRAVIS_BRANCH" == "dev_travis" ]]; then
+  - if [["$TRAVIS_BRANCH" == "master" ]]; then
        docker login -u "${DOCKER_USERNAME}" -p "DOCKER_PASSWORD}";
        docker push sirrius/first_repo:sails-api ;
     fi
